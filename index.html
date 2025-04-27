@@ -5,51 +5,120 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sazzad ICT - HSC 2025 ICT Revision</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+    
     body {
-      font-family: 'Noto Sans Bengali', sans-serif;
+      font-family: 'Hind Siliguri', 'Noto Sans Bengali', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f2f6fc;
-      color: #222;
+      background: #f5f8ff;
+      color: #333;
+      line-height: 1.6;
     }
-    /* Font Awesome CDN */
-    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
     header {
-      background: #0066cc;
+      background: linear-gradient(135deg, #0066cc, #004a99);
       color: white;
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 2.5rem 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     header h1 {
       font-size: 2.5rem;
       margin: 0;
+      font-weight: 700;
+      letter-spacing: 0.5px;
     }
     header p {
       font-size: 1.2rem;
-      margin-top: 0.5rem;
+      margin-top: 0.8rem;
+      opacity: 0.9;
     }
     section {
-      padding: 2rem 1rem;
+      padding: 2rem 1.2rem;
       max-width: 1000px;
       margin: auto;
     }
-    .photo {
-      text-align: center;
-      margin-bottom: 2rem;
+    .instructor-profile {
+      margin-bottom: 3rem;
     }
-    .photo img {
-      width: 160px;
-      height: 160px;
+    .profile-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,102,204,0.15);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 800px;
+      margin: 0 auto;
+      border-top: 5px solid #0066cc;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .profile-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,102,204,0.2);
+    }
+    .profile-image {
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .profile-image:after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background: #0066cc;
+      border-radius: 3px;
+    }
+    .profile-image img {
+      width: 180px;
+      height: 180px;
       object-fit: cover;
       border-radius: 50%;
-      border: 3px solid #0066cc;
+      border: 4px solid #0066cc;
+      box-shadow: 0 4px 15px rgba(0,102,204,0.2);
+      transition: transform 0.3s ease;
+    }
+    .profile-image img:hover {
+      transform: scale(1.05);
+    }
+    .profile-details {
+      text-align: center;
+    }
+    .instructor-name {
+      color: #004a99;
+      font-size: 1.8rem;
+      margin: 0.5rem 0;
+      font-weight: 700;
+    }
+    .credentials {
+      margin-top: 1rem;
+    }
+    .credentials p {
+      margin: 0.7rem 0;
+      font-size: 1.1rem;
+      color: #444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .credentials i {
+      color: #0066cc;
+      font-size: 1.2rem;
     }
     h2 {
       color: #004a99;
-      margin-top: 2rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
       font-size: 2rem;
       border-left: 5px solid #004a99;
-      padding-left: 10px;
+      padding-left: 12px;
+      font-weight: 600;
     }
     .batches {
       display: grid;
@@ -57,22 +126,54 @@
       gap: 1rem;
       margin-top: 1rem;
     }
+    @media (max-width: 600px) {
+      .batches {
+        grid-template-columns: 1fr;
+      }
+      .batch-card {
+        padding: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+    }
     .batch-card {
       background: white;
       border: 1px solid #e0e0e0;
-      padding: 1.8rem;
+      padding: 1.5rem;
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .batch-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
     }
     .batch-card h3 {
       margin-top: 0;
+      margin-bottom: 0.7rem;
       color: #0066cc;
       font-size: 1.3rem;
+      border-bottom: 2px solid #e6f0ff;
+      padding-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .batch-card p {
+      margin: 0.7rem 0;
+      line-height: 1.6;
+    }
+    .batch-days {
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .batch-time {
+      display: inline-block;
+      background: #e6f0ff;
+      color: #0066cc;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-weight: 600;
+      margin-top: 0.5rem;
     }
     .contact-buttons {
       text-align: center;
@@ -87,17 +188,22 @@
       align-items: center;
       justify-content: center;
       margin: 0.5rem;
-      padding: 0.8rem 1.5rem;
+      padding: 0.9rem 1.5rem;
       color: white;
       text-decoration: none;
       font-weight: bold;
-      border-radius: 5px;
-      transition: 0.3s;
+      border-radius: 8px;
+      transition: all 0.3s ease;
       min-width: 200px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .contact-buttons a:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     .contact-buttons a i {
-      margin-right: 0.5rem;
-      font-size: 1.2rem;
+      margin-right: 0.7rem;
+      font-size: 1.3rem;
     }
     .contact-buttons .call-btn {
       background: #0066cc;
@@ -112,29 +218,53 @@
       background: #128C7E;
     }
     .map-container {
-      margin-top: 2rem;
+      margin-top: 2.5rem;
       text-align: center;
     }
     iframe {
       width: 100%;
       height: 300px;
       border: 0;
-      border-radius: 10px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     }
     footer {
       background: #003366;
       color: white;
       text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      margin-top: 2rem;
+      padding: 1.5rem;
+      font-size: 0.95rem;
+      margin-top: 3rem;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
     }
     @media (max-width: 600px) {
       header h1 {
         font-size: 2rem;
       }
+      header p {
+        font-size: 1.1rem;
+      }
       h2 {
         font-size: 1.5rem;
+        margin-top: 2rem;
+      }
+      .profile-card {
+        padding: 1.5rem;
+        flex-direction: column;
+      }
+      .profile-image img {
+        width: 140px;
+        height: 140px;
+      }
+      .instructor-name {
+        font-size: 1.5rem;
+      }
+      .credentials p {
+        font-size: 1rem;
+      }
+      .batch-card {
+        padding: 1.3rem;
+        margin-bottom: 0.8rem;
       }
       .contact-buttons {
         flex-direction: column;
@@ -143,6 +273,10 @@
       .contact-buttons a {
         width: 100%;
         max-width: 300px;
+        margin: 0.4rem;
+      }
+      section {
+        padding: 1.5rem 1rem;
       }
     }
   </style>
@@ -155,9 +289,20 @@
 </header>
 
 <section>
-  <div class="photo">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSeatcmYRYsMNho5mAp9qySUzghxQYU_TPGw&s" alt="Instructor Photo">
-    <p style="margin-top: 1rem;">Md Sazzad Hossain<br>BSc in CSE, City University, Dhaka</p>
+  <div class="instructor-profile">
+    <div class="profile-card">
+      <div class="profile-image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSeatcmYRYsMNho5mAp9qySUzghxQYU_TPGw&s" alt="Instructor Photo">
+      </div>
+      <div class="profile-details">
+        <h3 class="instructor-name">Md Sazzad Hossain</h3>
+        <div class="credentials">
+          <p><i class="fas fa-graduation-cap"></i> BSc in CSE, City University, Dhaka</p>
+          <p><i class="fas fa-chalkboard-teacher"></i> ICT Instructor</p>
+          <p><i class="fas fa-award"></i> HSC ICT Specialist</p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <h2>কোর্সের তথ্য</h2>
@@ -168,19 +313,23 @@
   <div class="batches">
     <div class="batch-card">
       <h3>ব্যাচ ১</h3>
-      <p>শনিবার, সোমবার, বুধবার<br>সকাল ৮ টা</p>
+      <p><span class="batch-days">শনিবার, সোমবার, বুধবার</span><br>
+      <span class="batch-time">সকাল ৮ টা</span></p>
     </div>
     <div class="batch-card">
       <h3>ব্যাচ ২</h3>
-      <p>রবিবার, মঙ্গলবার, বৃহস্পতিবার<br>সকাল ৮ টা</p>
+      <p><span class="batch-days">রবিবার, মঙ্গলবার, বৃহস্পতিবার</span><br>
+      <span class="batch-time">সকাল ৮ টা</span></p>
     </div>
     <div class="batch-card">
       <h3>ব্যাচ ৩</h3>
-      <p>শনিবার, সোমবার, বুধবার<br>বিকাল ৫ টা</p>
+      <p><span class="batch-days">শনিবার, সোমবার, বুধবার</span><br>
+      <span class="batch-time">বিকাল ৫ টা</span></p>
     </div>
     <div class="batch-card">
       <h3>ব্যাচ ৪</h3>
-      <p>রবিবার, মঙ্গলবার, বৃহস্পতিবার<br>বিকাল ৫ টা</p>
+      <p><span class="batch-days">রবিবার, মঙ্গলবার, বৃহস্পতিবার</span><br>
+      <span class="batch-time">বিকাল ৫ টা</span></p>
     </div>
   </div>
 
