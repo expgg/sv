@@ -128,11 +128,13 @@
     }
     @media (max-width: 600px) {
       .batches {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
       }
       .batch-card {
         padding: 1.2rem;
         margin-bottom: 0.5rem;
+        font-size: 0.95rem;
       }
     }
     .batch-card {
@@ -172,6 +174,31 @@
       color: #0066cc;
       padding: 0.4rem 0.8rem;
       border-radius: 6px;
+    }
+    .seats-remaining {
+      display: flex;
+      align-items: center;
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed #e0e0e0;
+    }
+    .seats-count {
+      font-weight: 600;
+      color: #0066cc;
+      margin-left: 0.5rem;
+    }
+    .seats-progress {
+      flex: 1;
+      height: 8px;
+      background: #e6e6e6;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-right: 0.8rem;
+    }
+    .seats-progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #0066cc, #4d94ff);
+      border-radius: 4px;
       font-weight: 600;
       margin-top: 0.5rem;
     }
@@ -315,21 +342,45 @@
       <h3>ব্যাচ ১</h3>
       <p><span class="batch-days">শনিবার, সোমবার, বুধবার</span><br>
       <span class="batch-time">সকাল ৮ টা</span></p>
+      <div class="seats-remaining">
+        <div class="seats-progress">
+          <div class="seats-progress-bar" style="width: 25%;"></div>
+        </div>
+        <div class="seats-count">৫ সিট বাকি</div>
+      </div>
     </div>
     <div class="batch-card">
       <h3>ব্যাচ ২</h3>
       <p><span class="batch-days">রবিবার, মঙ্গলবার, বৃহস্পতিবার</span><br>
       <span class="batch-time">সকাল ৮ টা</span></p>
+      <div class="seats-remaining">
+        <div class="seats-progress">
+          <div class="seats-progress-bar" style="width: 40%;"></div>
+        </div>
+        <div class="seats-count">৮ সিট বাকি</div>
+      </div>
     </div>
     <div class="batch-card">
       <h3>ব্যাচ ৩</h3>
       <p><span class="batch-days">শনিবার, সোমবার, বুধবার</span><br>
       <span class="batch-time">বিকাল ৫ টা</span></p>
+      <div class="seats-remaining">
+        <div class="seats-progress">
+          <div class="seats-progress-bar" style="width: 65%;"></div>
+        </div>
+        <div class="seats-count">১২ সিট বাকি</div>
+      </div>
     </div>
     <div class="batch-card">
       <h3>ব্যাচ ৪</h3>
       <p><span class="batch-days">রবিবার, মঙ্গলবার, বৃহস্পতিবার</span><br>
       <span class="batch-time">বিকাল ৫ টা</span></p>
+      <div class="seats-remaining">
+        <div class="seats-progress">
+          <div class="seats-progress-bar" style="width: 15%;"></div>
+        </div>
+        <div class="seats-count">৩ সিট বাকি</div>
+      </div>
     </div>
   </div>
 
