@@ -12,6 +12,8 @@
       background: #f2f6fc;
       color: #222;
     }
+    /* Font Awesome CDN */
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
     header {
       background: #0066cc;
       color: white;
@@ -57,10 +59,15 @@
     }
     .batch-card {
       background: white;
-      border: 1px solid #ddd;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      border: 1px solid #e0e0e0;
+      padding: 1.8rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .batch-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
     }
     .batch-card h3 {
       margin-top: 0;
@@ -70,20 +77,39 @@
     .contact-buttons {
       text-align: center;
       margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
     }
     .contact-buttons a {
-      display: inline-block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin: 0.5rem;
       padding: 0.8rem 1.5rem;
-      background: #0066cc;
       color: white;
       text-decoration: none;
       font-weight: bold;
       border-radius: 5px;
       transition: 0.3s;
+      min-width: 200px;
     }
-    .contact-buttons a:hover {
+    .contact-buttons a i {
+      margin-right: 0.5rem;
+      font-size: 1.2rem;
+    }
+    .contact-buttons .call-btn {
+      background: #0066cc;
+    }
+    .contact-buttons .call-btn:hover {
       background: #004a99;
+    }
+    .contact-buttons .whatsapp-btn {
+      background: #25D366;
+    }
+    .contact-buttons .whatsapp-btn:hover {
+      background: #128C7E;
     }
     .map-container {
       margin-top: 2rem;
@@ -109,6 +135,14 @@
       }
       h2 {
         font-size: 1.5rem;
+      }
+      .contact-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      .contact-buttons a {
+        width: 100%;
+        max-width: 300px;
       }
     }
   </style>
@@ -152,15 +186,15 @@
 
   <h2>যোগাযোগ করুন</h2>
   <div class="contact-buttons">
-    <a href="tel:+8801725920977">কল করুন: 01725920977</a>
-    <a href="tel:+8801718615601">কল করুন: 01718615601</a>
-    <a href="https://wa.me/8801725920977" target="_blank">WhatsApp: 01725920977</a>
-    <a href="https://wa.me/8801718615601" target="_blank">WhatsApp: 01718615601</a>
+    <a href="tel:+8801725920977" class="call-btn"><i class="fas fa-phone"></i> কল করুন: 01725920977</a>
+    <a href="tel:+8801718615601" class="call-btn"><i class="fas fa-phone"></i> কল করুন: 01718615601</a>
+    <a href="https://wa.me/8801725920977" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপ: 01725920977</a>
+    <a href="https://wa.me/8801718615601" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপ: 01718615601</a>
   </div>
 
   <h2>লোকেশন</h2>
   <div class="map-container">
-    <iframe src="https://www.google.com/maps/embed?pb=!4v1714303810490!6m8!1m7!1sCAoSLEFGMVFpcE5VQ2RfS1E1ZXVXTU9NY0tlTnluY3hvVktFS29kRU5zTHNQV3dt!2m2!1d24.8314!2d89.0095!3f0!4f0!5f0.7820865974627469" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d225.81898075869944!2d89.02680518250857!3d25.098351045245998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fc9342c8dcca4f%3A0x20512a20a8ebb190!2z4Kao4Ka_4KaJIOCmleCmqOCmq-Cmv-CmoeCnh-CmqOCnjeCmuCDgppXgp4vgpprgpr_gpoIg4Ka44KeH4Kao4KeN4Kaf4Ka-4KawIE5ldyBDb25maWRlbmNlIENvYWNoaW5nIENlbnRlcg!5e0!3m2!1sen!2sbd!4v1745783671341!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 
 </section>
